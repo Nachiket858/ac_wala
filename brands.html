@@ -22,12 +22,50 @@
     <section class="relative overflow-hidden bg-hero-grad text-white grain">
       <div class="hero-aurora absolute inset-0"></div>
       <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 25% 15%,#fff 1px,transparent 1px);background-size:26px 26px"></div>
-      <div class="container relative pt-32 sm:pt-40 pb-16 sm:pb-24 text-center">
-        <p data-reveal class="text-sm font-bold uppercase tracking-widest text-white/70">Brands &amp; partners</p>
-        <h1 data-reveal class="mt-3 font-display text-4xl sm:text-5xl font-semibold">Authorized partner for 35+ brands</h1>
-        <p data-reveal class="mx-auto mt-4 max-w-2xl text-white/85 leading-relaxed">Authorized wholesaler, channel partner, distributor, dealer &amp; sub-dealer for the world's leading HVAC-R manufacturers.</p>
+      <!-- floating shapes -->
+      <div class="deco text-white/60 top-28 left-[6%] w-20 h-20 hexagon ring-1 ring-white/30 float-y hidden lg:block"></div>
+      <div class="deco bottom-44 right-[8%] w-16 h-16 blob-a blob-morph bg-white/10 ring-1 ring-white/15 hidden lg:block"></div>
+
+      <div class="container relative pt-32 sm:pt-40 pb-24 sm:pb-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left">
+            <p data-reveal class="text-sm font-bold uppercase tracking-widest text-white/70">Brands &amp; partners</p>
+            <h1 data-reveal class="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">Authorized partner for 35+ brands</h1>
+            <p data-reveal class="mx-auto lg:mx-0 mt-4 max-w-xl text-white/85 leading-relaxed">Authorized wholesaler, channel partner, distributor, dealer &amp; sub-dealer for the world's leading HVAC-R manufacturers.</p>
+            <div data-reveal class="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+              <a href="contact.html" class="btn-shine inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 font-bold px-6 py-3.5 shadow-glow">Enquire now</a>
+              <a href="tel:+919823444447" class="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur ring-1 ring-white/40 text-white font-semibold px-6 py-3.5 hover:bg-white/20 transition-colors">Call now</a>
+            </div>
+          </div>
+
+          <!-- VISUAL: brand-count ring -->
+          <div data-reveal="right" class="relative">
+            <div class="glass rounded-4xl p-8 shadow-glow relative overflow-hidden text-center">
+              <div class="absolute -top-12 -left-12 w-32 h-32 blob-b bg-white/10"></div>
+              <div class="relative mx-auto w-44 h-44">
+                <svg class="ring w-44 h-44" viewBox="0 0 120 120" aria-hidden="true">
+                  <circle class="ring__track ring__track--dark" cx="60" cy="60" r="52" stroke-width="10"/>
+                  <circle class="ring__arc ring__arc--light" cx="60" cy="60" r="52" stroke-width="10" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="--off:16"/>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                  <span class="font-display text-5xl font-semibold leading-none">35+</span>
+                  <span class="text-xs uppercase tracking-widest text-white/70 mt-1">Brands</span>
+                </div>
+              </div>
+              <div class="relative mt-6 flex flex-wrap justify-center gap-2">
+                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Copeland</span>
+                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Daikin</span>
+                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Danfoss</span>
+                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Bitzer</span>
+                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Blue Star</span>
+                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Samsung</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+
+      <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" style="height:60px" aria-hidden="true"><path fill="#f4f9fd" d="M0,50 C240,90 480,84 720,54 C960,24 1200,22 1440,50 L1440,90 L0,90 Z"></path></svg>
     </section>
 
     <!-- MARQUEE -->
@@ -43,12 +81,27 @@
       </div>
     </section>
 
-    <!-- ASSURANCE -->
+    <!-- ASSURANCE (text + photo) -->
     <section class="pb-20 sm:pb-24">
-      <div class="container">
-        <div data-reveal class="rounded-4xl bg-ice-100 px-8 py-12 text-center max-w-3xl mx-auto">
+      <div class="container grid lg:grid-cols-2 gap-8 items-stretch">
+        <div data-reveal="left" class="rounded-4xl bg-ice-100 p-8 sm:p-10 flex flex-col justify-center">
           <p class="font-display text-2xl sm:text-3xl text-ink leading-snug">Genuine material, best price, long-term association.</p>
-          <p class="mt-4 text-ink-soft">Every product we supply is genuine and sourced directly through our authorized partnerships.</p>
+          <p class="mt-4 text-ink-soft leading-relaxed">Every product we supply is genuine and sourced directly through our authorized partnerships.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-brand-700 ring-1 ring-ink/5">Wholesaler</span>
+            <span class="rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-brand-700 ring-1 ring-ink/5">Channel partner</span>
+            <span class="rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-brand-700 ring-1 ring-ink/5">Distributor</span>
+            <span class="rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-brand-700 ring-1 ring-ink/5">Dealer &amp; sub-dealer</span>
+          </div>
+        </div>
+        <div data-reveal="right" class="relative min-h-[20rem]">
+          <div class="deco -top-5 -left-4 w-14 h-14 blob-b bg-accent/20 float-y hidden sm:block"></div>
+          <!-- PHOTO SLOT — replace inner content with <img src="src/assets/photos/partner-wall.jpg" alt="Authorized partner brands"> -->
+          <div class="photo-slot mask-blob shadow-glow h-full">
+            <span class="photo-slot__icon"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
+            <span class="photo-slot__label">Add a partner-wall / showroom photo</span>
+            <span class="photo-slot__hint">Recommended 1100 × 1000</span>
+          </div>
         </div>
       </div>
     </section>

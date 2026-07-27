@@ -183,6 +183,135 @@ body { color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidde
 .bento-img { transition:transform .6s cubic-bezier(.16,.84,.44,1); }
 .bento:hover .bento-img { transform:scale(1.06); }
 
+/* ======================================================================= */
+/* SHAPES — break out of the all-rounded-rectangle look                    */
+/* Organic blobs, hexagons, squircles, angled clips + decorative bits.     */
+/* ======================================================================= */
+
+/* Organic blob radii (great for image masks & accent panels) */
+.blob-a { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+.blob-b { border-radius: 63% 37% 38% 62% / 55% 48% 52% 45%; }
+.blob-c { border-radius: 38% 62% 57% 43% / 52% 38% 62% 48%; }
+.blob-morph { animation: blobMorph 16s ease-in-out infinite; }
+@keyframes blobMorph {
+  0%,100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  33%     { border-radius: 58% 42% 38% 62% / 56% 55% 45% 44%; }
+  66%     { border-radius: 46% 54% 51% 49% / 39% 60% 40% 61%; }
+}
+
+/* Squircle (softer than a circle, rounder than a rounded-square) */
+.squircle { border-radius: 32% / 45%; }
+
+/* Hexagons (pointy top/bottom) */
+.hexagon { clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%); }
+.icon-hex { clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%); }
+
+/* Diagonal / slanted section edges */
+.clip-slant-b { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+.clip-slant-t { clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+.clip-slant-both { clip-path: polygon(0 6%, 100% 0, 100% 94%, 0 100%); }
+
+/* Image / panel mask helpers (border removed when a shape mask is applied) */
+.mask-blob   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+.mask-blob-2 { border-radius: 63% 37% 38% 62% / 55% 48% 52% 45%; }
+
+/* Decorative floating primitives */
+.deco { position:absolute; pointer-events:none; }
+.deco-ring { border:2px solid currentColor; border-radius:9999px; opacity:.3; }
+.deco-dot  { border-radius:9999px; background:currentColor; opacity:.5; }
+.deco-tri  { width:0; height:0; border-style:solid; }
+.spin-slow { animation: spin 30s linear infinite; }
+.spin-rev  { animation: spin 24s linear infinite reverse; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.float-y   { animation: floatY 7s ease-in-out infinite; }
+.float-y-2 { animation: floatY 9s ease-in-out infinite .8s; }
+@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+
+/* Wave dividers sit at the bottom of a coloured hero and blend into the
+   next section. Give the <svg> this class; set its <path> fill to the next
+   section's background colour. */
+.hero-wave { position:absolute; left:0; right:0; bottom:-1px; display:block; width:100%; height:auto; }
+
+/* Frosted-glass panel for hero visuals */
+.glass {
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.22);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+
+/* ======================================================================= */
+/* PHOTO SLOTS — attractive, labelled placeholders.                        */
+/* To drop in a real photo, add an <img> as the FIRST child of the slot:   */
+/*   <div class="photo-slot ..."><img src="src/assets/photos/x.jpg" alt=""> */
+/*   ...placeholder markup... </div>                                       */
+/* The <img> is absolutely positioned and covers the placeholder — no other*/
+/* markup needs to change.                                                 */
+/* ======================================================================= */
+.photo-slot {
+  position: relative; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: .55rem;
+  min-height: 15rem; padding: 1.75rem; text-align: center; overflow: hidden;
+  color: #5b7086; isolation: isolate;
+  background:
+    linear-gradient(135deg, rgba(46,155,224,.12), rgba(21,94,151,.06)),
+    repeating-linear-gradient(45deg, rgba(11,43,78,.04) 0 10px, transparent 10px 22px);
+  border: 1.5px dashed rgba(27,117,188,.38);
+  border-radius: 1.5rem;
+}
+.photo-slot > img { position:absolute; inset:0; z-index:2; width:100%; height:100%; object-fit:cover; }
+.photo-slot__icon { color:#2b7ccb; opacity:.85; }
+.photo-slot__label { font-weight:700; color:#155e97; letter-spacing:-.01em; }
+.photo-slot__hint  { font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:#7189a0; }
+/* When masked to a shape, the dashed border looks clipped — drop it. */
+.photo-slot.mask-blob, .photo-slot.mask-blob-2,
+.photo-slot.hexagon, .photo-slot.squircle { border: none; }
+
+/* ======================================================================= */
+/* DATA-VIZ — lightweight charts that animate when scrolled into view.     */
+/* Any viz inside an element that receives .is-visible (via [data-reveal]  */
+/* or [data-stagger]) animates in.                                         */
+/* ======================================================================= */
+
+/* Horizontal meter / progress bar */
+.meter { position:relative; height:.55rem; border-radius:9999px; background:rgba(11,43,78,.10); overflow:hidden; }
+.meter--dark { background:rgba(255,255,255,.20); }
+.meter__fill {
+  position:absolute; inset:0 auto 0 0; width:0; border-radius:inherit;
+  background:linear-gradient(90deg,#1b75bc,#2e9be0);
+  transition: width 1.3s cubic-bezier(.16,.84,.44,1);
+}
+.meter--dark .meter__fill { background:linear-gradient(90deg,#bfe0fb,#ffffff); }
+.is-visible .meter__fill { width: var(--val, 0%); }
+
+/* Radial ring / donut gauge (SVG). Set --off (target dashoffset) inline. */
+.ring { transform: rotate(-90deg); transform-origin: 50% 50%; }
+.ring__track { fill:none; stroke:rgba(11,43,78,.10); }
+.ring__track--dark { stroke:rgba(255,255,255,.20); }
+.ring__arc {
+  fill:none; stroke-linecap:round;
+  stroke: url(#ringGrad);
+  transition: stroke-dashoffset 1.5s cubic-bezier(.16,.84,.44,1);
+}
+.ring__arc--light { stroke: url(#ringGradLight); }
+.is-visible .ring__arc { stroke-dashoffset: var(--off, 0); }
+
+/* Temperature / capacity scale bar with a highlighted span */
+.scale { position:relative; height:.85rem; border-radius:9999px;
+  background:linear-gradient(90deg,#123f64,#1b75bc 45%,#2e9be0 75%,#7cc4f5); overflow:hidden; }
+.scale__span { position:absolute; top:0; bottom:0; width:0; background:rgba(255,255,255,.28);
+  border-left:2px solid #fff; border-right:2px solid #fff; transition: width 1.4s cubic-bezier(.16,.84,.44,1); }
+.is-visible .scale__span { width: var(--span, 0%); }
+
+/* Mini vertical bar chart */
+.bars { display:flex; align-items:flex-end; gap:.5rem; height:5.5rem; }
+.bars > i { flex:1; display:block; height:var(--h,20%); border-radius:.4rem .4rem 0 0;
+  background:linear-gradient(180deg,#2e9be0,#155e97); transform:scaleY(0); transform-origin:bottom;
+  transition: transform 1s cubic-bezier(.16,.84,.44,1); }
+.is-visible .bars > i { transform: scaleY(1); }
+.is-visible .bars > i:nth-child(2){ transition-delay:.08s } .is-visible .bars > i:nth-child(3){ transition-delay:.16s }
+.is-visible .bars > i:nth-child(4){ transition-delay:.24s } .is-visible .bars > i:nth-child(5){ transition-delay:.32s }
+.is-visible .bars > i:nth-child(6){ transition-delay:.40s }
+
 /* ----------------------------------------------------------------------- */
 /* Reduced motion                                                          */
 /* ----------------------------------------------------------------------- */

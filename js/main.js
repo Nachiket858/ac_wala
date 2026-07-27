@@ -20,7 +20,7 @@ function serviceCard(s, detailed = false) {
   return `
   <article id="${s.id}" data-reveal data-tilt class="card spot group p-7">
     <div class="flex items-center justify-between">
-      <div class="relative inline-flex w-16 h-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-accent text-white shadow-glow">
+      <div class="relative inline-flex w-16 h-16 items-center justify-center blob-a bg-gradient-to-br from-brand-500 to-accent text-white shadow-glow">
         ${icon(s.icon, 'w-8 h-8')}
       </div>
       <span class="text-brand-100 font-display text-4xl leading-none group-hover:text-brand-200 transition-colors">0${SERVICES.indexOf(s)+1}</span>
@@ -47,19 +47,24 @@ function statTile(s) {
 function whyCard(w) {
   return `
   <div data-reveal data-tilt class="card spot p-7">
-    <div class="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-accent/10 text-accent">${icon(w.icon,'w-7 h-7')}</div>
+    <div class="icon-hex inline-flex w-14 h-14 items-center justify-center bg-gradient-to-br from-brand-500 to-accent text-white shadow-glow">${icon(w.icon,'w-7 h-7')}</div>
     <h3 class="mt-5 font-semibold text-lg text-ink">${w.title}</h3>
     <p class="mt-2 text-sm text-ink-soft leading-relaxed">${w.text}</p>
   </div>`;
 }
 
 function productCard(p) {
+  /* Media = a photo when p.img is set, otherwise the gradient + icon visual.
+     To use a real photo, set img:'src/assets/photos/xxx.jpg' on the product in data.js. */
+  const media = p.img
+    ? `<img src="${p.img}" alt="${p.title}" class="bento-img absolute inset-0 w-full h-full object-cover">`
+    : `<div class="bento-img absolute inset-0 opacity-25" style="background:radial-gradient(circle at 30% 20%, #fff, transparent 60%)"></div>
+       <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 50% 50%,#fff 1px,transparent 1px);background-size:20px 20px"></div>
+       ${icon(p.icon, 'w-16 h-16 relative drop-shadow group-hover:scale-110 transition-transform duration-500')}`;
   return `
   <article data-reveal class="bento card spot group overflow-hidden">
     <div class="relative h-44 bg-hero-grad flex items-center justify-center text-white overflow-hidden">
-      <div class="bento-img absolute inset-0 opacity-25" style="background:radial-gradient(circle at 30% 20%, #fff, transparent 60%)"></div>
-      <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 50% 50%,#fff 1px,transparent 1px);background-size:20px 20px"></div>
-      ${icon(p.icon, 'w-16 h-16 relative drop-shadow group-hover:scale-110 transition-transform duration-500')}
+      ${media}
       <span class="absolute top-4 right-4 rounded-full bg-white/20 backdrop-blur ring-1 ring-white/30 text-white text-xs font-semibold px-3 py-1">${p.spec}</span>
     </div>
     <div class="p-6">
@@ -90,6 +95,12 @@ const RENDERERS = {
   services: () => SERVICES.map(s => serviceCard(s, false)).join(''),
   'services-detailed': () => SERVICES.map(s => serviceCard(s, true)).join(''),
   why:      () => WHY.map(whyCard).join(''),
+  /* Compact service cluster used inside the Services page hero visual */
+  'service-mini': () => SERVICES.map(s => `
+    <div class="glass rounded-2xl p-4 flex items-center gap-3">
+      <span class="icon-hex inline-flex w-10 h-10 items-center justify-center bg-white/15 text-white shrink-0">${icon(s.icon,'w-5 h-5')}</span>
+      <span class="text-sm font-semibold leading-tight">${s.title}</span>
+    </div>`).join(''),
   products: () => PRODUCTS.map(productCard).join(''),
   memberships: () => MEMBERSHIPS.map(membershipBadge).join(''),
   'brands-grid': () => BRAND_GROUPS.map(g => `
@@ -276,9 +287,31 @@ function initFaq() {
 }
 
 /* ----------------------------------------------------------------------- */
+/* Shared SVG gradient defs (used by the ring / donut gauges)              */
+/* ----------------------------------------------------------------------- */
+function injectSvgDefs() {
+  if (document.getElementById('aerc-svg-defs')) return;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('id', 'aerc-svg-defs');
+  svg.setAttribute('width', '0'); svg.setAttribute('height', '0');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.style.position = 'absolute';
+  svg.innerHTML = `<defs>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#155e97"/><stop offset="1" stop-color="#2e9be0"/>
+    </linearGradient>
+    <linearGradient id="ringGradLight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bfe0fb"/><stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>`;
+  document.body.appendChild(svg);
+}
+
+/* ----------------------------------------------------------------------- */
 /* Init                                                                    */
 /* ----------------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
+  injectSvgDefs();
   runRenderers();
   initReveal();
   initCounters();

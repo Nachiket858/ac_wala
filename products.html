@@ -22,12 +22,53 @@
     <section class="relative overflow-hidden bg-hero-grad text-white grain">
       <div class="hero-aurora absolute inset-0"></div>
       <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 25% 15%,#fff 1px,transparent 1px);background-size:26px 26px"></div>
-      <div class="container relative pt-32 sm:pt-40 pb-16 sm:pb-24 text-center">
-        <p data-reveal class="text-sm font-bold uppercase tracking-widest text-white/70">Products &amp; cold chain</p>
-        <h1 data-reveal class="mt-3 font-display text-4xl sm:text-5xl font-semibold">Sustainable climate technologies</h1>
-        <p data-reveal class="mx-auto mt-4 max-w-2xl text-white/85 leading-relaxed">Condensing units, evaporators, blast freezers, heat pumps and smart controls — engineered for the cold chain and food-processing industry.</p>
+      <!-- floating shapes -->
+      <div class="deco text-white/70 top-28 right-[7%] w-28 h-28 deco-ring spin-slow hidden lg:block"></div>
+      <div class="deco bottom-40 left-[5%] w-20 h-20 blob-c blob-morph bg-white/10 ring-1 ring-white/15 hidden lg:block"></div>
+
+      <div class="container relative pt-32 sm:pt-40 pb-24 sm:pb-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left">
+            <p data-reveal class="text-sm font-bold uppercase tracking-widest text-white/70">Products &amp; cold chain</p>
+            <h1 data-reveal class="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">Sustainable climate technologies</h1>
+            <p data-reveal class="mx-auto lg:mx-0 mt-4 max-w-xl text-white/85 leading-relaxed">Condensing units, evaporators, blast freezers, heat pumps and smart controls — engineered for the cold chain &amp; food-processing industry.</p>
+            <div data-reveal class="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+              <a href="contact.html" class="btn-shine inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 font-bold px-6 py-3.5 shadow-glow">Get a quote</a>
+              <a href="https://wa.me/919823444447" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl bg-[#25D366] text-white font-semibold px-6 py-3.5 hover:-translate-y-0.5 transition-transform">Chat on WhatsApp</a>
+            </div>
+          </div>
+
+          <!-- VISUAL: capacity gauge + temperature range -->
+          <div data-reveal="right" class="relative">
+            <div class="glass rounded-4xl p-8 shadow-glow relative overflow-hidden">
+              <div class="absolute -bottom-12 -right-12 w-32 h-32 blob-a bg-white/10"></div>
+              <div class="relative flex items-center gap-6">
+                <div class="relative w-28 h-28 shrink-0">
+                  <svg class="ring w-28 h-28" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="ring__track ring__track--dark" cx="60" cy="60" r="52" stroke-width="12"/>
+                    <circle class="ring__arc ring__arc--light" cx="60" cy="60" r="52" stroke-width="12" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="--off:33"/>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="font-display text-3xl font-semibold leading-none">250</span>
+                    <span class="text-xs text-white/70 mt-0.5">HP max</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold">Condensing capacity</p>
+                  <p class="text-sm text-white/75 mt-1">From <strong class="text-white">1 HP</strong> to <strong class="text-white">250 HP</strong> — air &amp; water-cooled multi-compressor packs.</p>
+                </div>
+              </div>
+              <div class="relative mt-7">
+                <div class="flex justify-between text-xs text-white/75 mb-2"><span>Operating temperature range</span></div>
+                <div class="scale"><span class="scale__span" style="--span:84%"></span></div>
+                <div class="flex justify-between text-[11px] text-white/55 mt-1.5"><span>−40 °C</span><span>+10 °C</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+
+      <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" style="height:60px" aria-hidden="true"><path fill="#ffffff" d="M0,50 C240,90 480,84 720,54 C960,24 1200,22 1440,50 L1440,90 L0,90 Z"></path></svg>
     </section>
 
     <!-- PRODUCTS GRID -->
@@ -53,6 +94,13 @@
             <div class="rounded-2xl bg-white p-4 ring-1 ring-ink/5"><span class="font-semibold text-ink">Semi-hermetic</span><p class="text-sm text-ink-muted mt-1">Air &amp; water-cooled, 10–50 HP</p></div>
             <div class="rounded-2xl bg-white p-4 ring-1 ring-ink/5"><span class="font-semibold text-ink">Multi-compressor packs</span><p class="text-sm text-ink-muted mt-1">10–250 HP</p></div>
             <div class="rounded-2xl bg-white p-4 ring-1 ring-ink/5"><span class="font-semibold text-ink">Facility controls</span><p class="text-sm text-ink-muted mt-1">Site supervisor, XLR &amp; XR-T</p></div>
+          </div>
+          <div class="mt-8 max-w-sm">
+            <p class="text-xs font-semibold uppercase tracking-widest text-ink-muted mb-3">Capacity across the range</p>
+            <div class="bars" aria-hidden="true">
+              <i style="--h:14%"></i><i style="--h:30%"></i><i style="--h:46%"></i><i style="--h:62%"></i><i style="--h:80%"></i><i style="--h:100%"></i>
+            </div>
+            <div class="flex justify-between text-[11px] text-ink-muted mt-2"><span>1 HP</span><span>250 HP</span></div>
           </div>
         </div>
         <div data-reveal="right" class="rounded-4xl bg-hero-grad p-10 text-white shadow-glow relative overflow-hidden">
@@ -82,6 +130,20 @@
           <div data-reveal class="lift rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink/5"><h3 class="font-display text-lg text-ink">Floor-mounted blast freezer</h3><p class="mt-2 text-sm text-ink-soft">Stable floor design delivering high-velocity airflow for rapid freezing.</p></div>
           <div data-reveal class="lift rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink/5"><h3 class="font-display text-lg text-ink">V-type floor-mounted</h3><p class="mt-2 text-sm text-ink-soft">Larger footprint for high product quantity with stable installation.</p></div>
           <div data-reveal class="lift rounded-3xl bg-white p-7 shadow-soft ring-1 ring-ink/5"><h3 class="font-display text-lg text-ink">Ceiling-mounted</h3><p class="mt-2 text-sm text-ink-soft">Ceiling-hung design that maximizes usable floor space.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLD ROOM IN OPERATION (photo) -->
+    <section class="pb-20 sm:pb-24">
+      <div class="container">
+        <div data-reveal class="relative rounded-4xl overflow-hidden shadow-card">
+          <!-- PHOTO SLOT — replace inner content with <img src="src/assets/photos/cold-room.jpg" alt="AERC cold room in operation"> -->
+          <div class="photo-slot min-h-[20rem]">
+            <span class="photo-slot__icon"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
+            <span class="photo-slot__label">Add a cold-room / installation photo</span>
+            <span class="photo-slot__hint">Recommended 1600 × 700</span>
+          </div>
         </div>
       </div>
     </section>
