@@ -16,20 +16,37 @@ function serviceCard(s, detailed = false) {
     ? `<div class="mt-5 flex flex-wrap gap-1.5">${s.brands.slice(0, detailed ? 99 : 4).map(chip).join('')}</div>` : '';
   const points = detailed && s.points
     ? `<ul class="mt-5 space-y-2.5">${s.points.map(p =>
-        `<li class="flex gap-2 text-sm text-ink-soft"><span class="text-brand-500 mt-0.5">${icon('check','w-4 h-4')}</span>${p}</li>`).join('')}</ul>` : '';
+        `<li class="flex gap-2 text-sm text-slate-200"><span class="text-cyan-400 mt-0.5">${icon('check','w-4 h-4')}</span>${p}</li>`).join('')}</ul>` : '';
+  const badge = s.badge ? `<span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-wide ring-1 ring-white/30">${s.badge}</span>` : '';
+
   return `
-  <article id="${s.id}" data-reveal data-tilt class="card spot group p-7">
-    <div class="flex items-center justify-between">
-      <div class="relative inline-flex w-16 h-16 items-center justify-center blob-a bg-gradient-to-br from-brand-500 to-accent text-white shadow-glow">
-        ${icon(s.icon, 'w-8 h-8')}
-      </div>
-      <span class="text-brand-100 font-display text-4xl leading-none group-hover:text-brand-200 transition-colors">0${SERVICES.indexOf(s)+1}</span>
+  <article id="${s.id}" data-reveal data-tilt class="card spot group p-7 relative overflow-hidden text-white transition-all duration-500 hover:-translate-y-2">
+    <!-- Background Image & Gradient Layer -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="${s.img}" alt="${s.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-40">
+      <div class="absolute inset-0" style="background: ${s.bgGradient || 'linear-gradient(145deg, rgba(11, 43, 78, 0.9) 0%, rgba(21, 94, 151, 0.9) 100%)'}"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-transparent"></div>
     </div>
-    <h3 class="mt-6 font-display text-xl text-ink">${s.title}</h3>
-    <p class="mt-2 text-ink-soft text-sm leading-relaxed">${s.summary}</p>
-    ${points}
-    ${brands}
-    <a href="services.html#${s.id}" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 group-hover:gap-3 transition-all">Learn more ${icon('arrow','w-4 h-4')}</a>
+
+    <!-- Card Content -->
+    <div class="relative z-10 flex flex-col h-full justify-between">
+      <div>
+        <div class="flex items-center justify-between">
+          <div class="relative inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-md ring-1 ring-white/30 text-white shadow-glow group-hover:bg-brand-500 transition-colors duration-300">
+            ${icon(s.icon, 'w-7 h-7')}
+          </div>
+          ${badge}
+        </div>
+        <h3 class="mt-6 font-display text-2xl font-semibold text-white drop-shadow">${s.title}</h3>
+        <p class="mt-3 text-slate-200 text-sm leading-relaxed">${s.summary}</p>
+        ${points}
+        ${brands}
+      </div>
+      <div class="mt-8 pt-4 border-t border-white/15 flex items-center justify-between">
+        <a href="services.html#${s.id}" class="inline-flex items-center gap-2 text-sm font-bold text-cyan-300 group-hover:text-white group-hover:gap-3 transition-all">Learn more ${icon('arrow','w-4 h-4')}</a>
+        <span class="text-white/30 font-display text-3xl font-bold group-hover:text-white/60 transition-colors">0${SERVICES.indexOf(s)+1}</span>
+      </div>
+    </div>
   </article>`;
 }
 
@@ -46,29 +63,36 @@ function statTile(s) {
 
 function whyCard(w) {
   return `
-  <div data-reveal data-tilt class="card spot p-7">
-    <div class="icon-hex inline-flex w-14 h-14 items-center justify-center bg-gradient-to-br from-brand-500 to-accent text-white shadow-glow">${icon(w.icon,'w-7 h-7')}</div>
-    <h3 class="mt-5 font-semibold text-lg text-ink">${w.title}</h3>
-    <p class="mt-2 text-sm text-ink-soft leading-relaxed">${w.text}</p>
+  <div data-reveal data-tilt class="card spot group p-7 relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+    <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity overflow-hidden">
+      <img src="${w.img || ASSETS.heroAbout}" alt="${w.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+    </div>
+    <div class="relative z-10">
+      <div class="icon-hex inline-flex w-14 h-14 items-center justify-center bg-gradient-to-br from-brand-500 to-accent text-white shadow-glow group-hover:scale-110 transition-transform duration-300">${icon(w.icon,'w-7 h-7')}</div>
+      <h3 class="mt-5 font-display text-xl font-semibold text-ink">${w.title}</h3>
+      <p class="mt-2 text-sm text-ink-soft leading-relaxed">${w.text}</p>
+    </div>
   </div>`;
 }
 
 function productCard(p) {
-  /* Media = a photo when p.img is set, otherwise the gradient + icon visual.
-     To use a real photo, set img:'src/assets/photos/xxx.jpg' on the product in data.js. */
-  const media = p.img
-    ? `<img src="${p.img}" alt="${p.title}" class="bento-img absolute inset-0 w-full h-full object-cover">`
-    : `<div class="bento-img absolute inset-0 opacity-25" style="background:radial-gradient(circle at 30% 20%, #fff, transparent 60%)"></div>
-       <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 50% 50%,#fff 1px,transparent 1px);background-size:20px 20px"></div>
-       ${icon(p.icon, 'w-16 h-16 relative drop-shadow group-hover:scale-110 transition-transform duration-500')}`;
+  const media = `
+    <img src="${p.img || ASSETS.heroProducts}" alt="${p.title}" class="bento-img absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-transparent"></div>
+    <div class="absolute inset-0 bg-brand-900/20 group-hover:bg-brand-900/0 transition-colors"></div>
+    <div class="relative z-10 flex items-center justify-center h-full">
+      ${icon(p.icon, 'w-16 h-16 text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500')}
+    </div>`;
+
   return `
-  <article data-reveal class="bento card spot group overflow-hidden">
-    <div class="relative h-44 bg-hero-grad flex items-center justify-center text-white overflow-hidden">
+  <article data-reveal class="bento card spot group overflow-hidden transition-all duration-500 hover:-translate-y-2">
+    <div class="relative h-52 bg-slate-900 flex items-center justify-center text-white overflow-hidden">
       ${media}
-      <span class="absolute top-4 right-4 rounded-full bg-white/20 backdrop-blur ring-1 ring-white/30 text-white text-xs font-semibold px-3 py-1">${p.spec}</span>
+      <span class="absolute top-4 right-4 rounded-full bg-slate-900/70 backdrop-blur-md ring-1 ring-white/30 text-white text-xs font-bold px-3.5 py-1.5 shadow-md z-20">${p.spec}</span>
     </div>
-    <div class="p-6">
-      <h3 class="font-display text-lg text-ink">${p.title}</h3>
+    <div class="p-6 relative bg-white">
+      <h3 class="font-display text-xl font-semibold text-ink group-hover:text-brand-600 transition-colors">${p.title}</h3>
       <p class="mt-2 text-sm text-ink-soft leading-relaxed">${p.text}</p>
     </div>
   </article>`;
@@ -96,10 +120,13 @@ const RENDERERS = {
   'services-detailed': () => SERVICES.map(s => serviceCard(s, true)).join(''),
   why:      () => WHY.map(whyCard).join(''),
   /* Compact service cluster used inside the Services page hero visual */
-  'service-mini': () => SERVICES.map(s => `
-    <div class="glass rounded-2xl p-4 flex items-center gap-3">
-      <span class="icon-hex inline-flex w-10 h-10 items-center justify-center bg-white/15 text-white shrink-0">${icon(s.icon,'w-5 h-5')}</span>
-      <span class="text-sm font-semibold leading-tight">${s.title}</span>
+  'service-mini': () => SERVICES.map((s, i) => `
+    <div class="glass rounded-2xl p-4 flex items-center gap-3 group cursor-default ring-1 ring-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+      <span class="icon-hex inline-flex w-11 h-11 items-center justify-center bg-white/15 text-white shrink-0 group-hover:bg-brand-500 transition-colors duration-300">${icon(s.icon,'w-5 h-5')}</span>
+      <div class="min-w-0">
+        <span class="text-sm font-bold leading-tight block">${s.title}</span>
+        ${s.badge ? `<span class="text-[10px] text-cyan-300/80 font-medium tracking-wide">${s.badge}</span>` : ''}
+      </div>
     </div>`).join(''),
   products: () => PRODUCTS.map(productCard).join(''),
   memberships: () => MEMBERSHIPS.map(membershipBadge).join(''),
@@ -179,7 +206,7 @@ function initCounters() {
 function initScrollFx() {
   const topbar = document.getElementById('topbar');
   const pill = document.getElementById('navbar-pill');
-  const hero = document.querySelector('[data-parallax]');
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const onScroll = () => {
@@ -198,8 +225,8 @@ function initScrollFx() {
       pill.classList.toggle('mt-3', !scrolled);
       pill.classList.toggle('mt-2', scrolled);
     }
-    /* Gentle parallax drift on the hero background image */
-    if (hero && !reduce) hero.style.transform = `translateY(${y * 0.12}px) scale(1.04)`;
+    /* Gentle parallax drift on all hero background images */
+    if (!reduce) parallaxEls.forEach(el => { el.style.transform = `translateY(${y * 0.12}px) scale(1.05)`; });
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

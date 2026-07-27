@@ -321,3 +321,147 @@ body { color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidde
   [data-reveal] { opacity:1 !important; transform:none !important; }
   .hero-line > span, .hero-fade { transform:none !important; opacity:1 !important; }
 }
+
+/* =======================================================================
+   ENHANCED CARD BG OVERLAYS — for service/product/why cards with images
+   ======================================================================= */
+
+/* Ensure service card has fixed min-height so bg image looks great */
+.card { min-height: 14rem; }
+
+/* Dark-overlay card variant: the ::before gradient-border still works 
+   because z-index of bg layer is 0, content is z-10, border is inset */
+.card.text-white::before {
+  background: linear-gradient(135deg, rgba(255,255,255,.25), rgba(46,155,224,.4), rgba(255,255,255,.12));
+}
+
+/* Photo-card project tiles (services.html "Recent Projects") */
+.photo-slot.rounded-3xl {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+/* =======================================================================
+   ANIMATED STATUS BADGE (pinging dot)
+   ======================================================================= */
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+.animate-ping { animation: ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+/* =======================================================================
+   GLASSMORPHISM VARIANTS
+   ======================================================================= */
+
+/* Stronger hero glass for page section widgets */
+.glass-hero {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.25);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 8px 32px rgba(11,43,78,.28), inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+/* Dark glass card for overlaid content on images */
+.glass-card-dark {
+  background: rgba(11,43,78,.55);
+  border: 1px solid rgba(255,255,255,.18);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* =======================================================================
+   ENHANCED HOVER EFFECTS — extra depth for service cards with bg images
+   ======================================================================= */
+
+/* Tighten hover translate for image-backed cards */
+article.card:hover {
+  box-shadow: 0 32px 72px -24px rgba(11,43,78,.5), 0 0 0 1px rgba(46,155,224,.35);
+}
+
+/* Icon inside card on hover: glow ring */
+.card.text-white:hover .rounded-2xl {
+  box-shadow: 0 0 20px rgba(46,155,224,.5);
+}
+
+/* =======================================================================
+   CARD "LEARN MORE" LINK SLIDE EFFECT
+   ======================================================================= */
+.card a[href]:not(.btn-shine) {
+  position: relative;
+}
+
+/* =======================================================================
+   ANIMATED GRADIENT BORDER for why/product cards on hover
+   ======================================================================= */
+@keyframes borderRotate {
+  to { background-position: 200% center; }
+}
+.card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, #83b8ea, #2e9be0, #155e97, #83b8ea);
+  background-size: 200% auto;
+  animation: borderRotate 2s linear infinite;
+}
+
+/* =======================================================================
+   SECTION: INDEX - COLD CHAIN HIGHLIGHT metric cards
+   ======================================================================= */
+.meter { height: .6rem; }
+
+/* =======================================================================
+   HERO BG PHOTO helper — ensures parallax image sections have min height
+   ======================================================================= */
+section.grain:not(.bg-white):not(.bg-ice-50):not(.bg-ice-100) {
+  min-height: 70vh;
+}
+
+/* =======================================================================
+   PROCESS STEP CARDS — numbered hover accent
+   ======================================================================= */
+.rounded-3xl[data-reveal]:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px -16px rgba(11,43,78,.22);
+  transition: transform .4s cubic-bezier(.16,.84,.44,1), box-shadow .4s ease;
+}
+
+/* Number accent on hover */
+.rounded-3xl[data-reveal]:hover .font-display.text-brand-100 {
+  color: #1b75bc;
+  transition: color .3s ease;
+}
+
+/* =======================================================================
+   CHIP / BADGE inside cards (service cards now dark-overlay)
+   ======================================================================= */
+.card .rounded-full.bg-ice-100 {
+  background: rgba(255,255,255,.18);
+  color: #bfe0fb;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+/* =======================================================================
+   SERVICE MINI (hero widget pills on services.html)
+   ======================================================================= */
+.glass.rounded-2xl:hover {
+  background: rgba(255,255,255,.18);
+  transform: translateY(-3px);
+  transition: all .3s ease;
+}
+
+/* =======================================================================
+   SMOOTH SCROLL SNAP for hero parallax images
+   ======================================================================= */
+[data-parallax] {
+  will-change: transform;
+}
+
+/* =======================================================================
+   MARQUEE BRAND NAME GLOW on hover
+   ======================================================================= */
+.marquee__track span:hover {
+  text-shadow: 0 0 16px rgba(46,155,224,.5);
+}
+

@@ -19,22 +19,31 @@
 
   <main>
     <!-- PAGE HERO -->
-    <section class="relative overflow-hidden bg-hero-grad text-white grain">
+    <section class="relative overflow-hidden text-white grain">
+      <!-- Background Photo -->
+      <div class="absolute inset-0 overflow-hidden">
+        <img data-parallax src="src/assets/photos/hero-services.png" alt="HVAC-R commercial installation" class="w-full h-full object-cover scale-105 select-none pointer-events-none opacity-40">
+        <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(11,43,78,0.88) 0%, rgba(21,94,151,0.65) 50%, rgba(11,43,78,0.92) 100%)"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-900/50 via-transparent to-accent/15"></div>
+      </div>
       <div class="hero-aurora absolute inset-0"></div>
       <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 25% 15%,#fff 1px,transparent 1px);background-size:26px 26px"></div>
+
       <!-- floating shapes -->
       <div class="deco text-white/70 top-32 left-[6%] w-24 h-24 hexagon ring-1 ring-white/30 spin-rev hidden lg:block"></div>
       <div class="deco bottom-44 right-[6%] w-16 h-16 blob-b blob-morph bg-white/10 ring-1 ring-white/15 hidden lg:block"></div>
 
-      <div class="container relative pt-32 sm:pt-40 pb-24 sm:pb-32">
+      <div class="container relative pt-36 sm:pt-44 pb-28 sm:pb-36">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="text-center lg:text-left">
-            <p data-reveal class="text-sm font-bold uppercase tracking-widest text-white/70">Our services</p>
-            <h1 data-reveal class="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">One partner, end-to-end HVAC-R</h1>
-            <p data-reveal class="mx-auto lg:mx-0 mt-4 max-w-xl text-white/85 leading-relaxed">Supply, system design, installation, commissioning and after-sales — across cooling, heating, refrigeration and manufacturing.</p>
+            <span data-reveal class="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-300 ring-1 ring-white/30 mb-4">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> HVAC-R Solutions &amp; Engineering
+            </span>
+            <h1 data-reveal class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">One Partner, End-to-End HVAC-R</h1>
+            <p data-reveal class="mx-auto lg:mx-0 mt-4 max-w-xl text-slate-100 text-lg leading-relaxed">Supply, system design, installation, commissioning and after-sales — across cooling, heating, cold chain and contract manufacturing.</p>
             <div data-reveal class="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-              <a href="contact.html" class="btn-shine inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 font-bold px-6 py-3.5 shadow-glow">Get a quote</a>
-              <a href="tel:+919823444447" class="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur ring-1 ring-white/40 text-white font-semibold px-6 py-3.5 hover:bg-white/20 transition-colors">Call now</a>
+              <a href="contact.html" class="btn-shine inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 font-bold px-7 py-4 shadow-glow hover:bg-slate-100 transition-all">Get a Quote</a>
+              <a href="tel:+919823444447" class="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-md ring-1 ring-white/40 text-white font-semibold px-7 py-4 hover:bg-white/20 transition-all">Call Specialist</a>
             </div>
           </div>
 
@@ -78,23 +87,32 @@
           <p data-reveal class="mt-4 text-ink-soft leading-relaxed">A glimpse of the cooling, heating and cold-chain systems our team has delivered across the region.</p>
         </div>
         <div data-stagger class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- PHOTO SLOT — replace inner content with <img src="src/assets/photos/project-vrf.jpg" alt="VRF fit-out"> -->
-          <div data-reveal class="photo-slot mask-blob min-h-[16rem] shadow-soft">
-            <span class="photo-slot__icon"><svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
-            <span class="photo-slot__label">Commercial VRF fit-out</span>
-            <span class="photo-slot__hint">Add photo · 1000 × 800</span>
+          <div data-reveal class="photo-slot overflow-hidden group min-h-[18rem] shadow-card rounded-3xl relative border-none">
+            <img src="src/assets/photos/hero-services.png" alt="Commercial VRF fit-out" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            <div class="relative z-10 mt-auto text-left text-white">
+              <span class="px-3 py-1 rounded-full bg-cyan-500/30 backdrop-blur text-cyan-300 text-xs font-bold ring-1 ring-cyan-400/40">HVAC Fit-out</span>
+              <h3 class="mt-2 font-display text-xl font-semibold">Commercial VRF System</h3>
+              <p class="text-xs text-slate-300 mt-1">Multi-zone high-efficiency climate control</p>
+            </div>
           </div>
-          <!-- PHOTO SLOT -->
-          <div data-reveal class="photo-slot squircle min-h-[16rem] shadow-soft">
-            <span class="photo-slot__icon"><svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
-            <span class="photo-slot__label">Cold-room build</span>
-            <span class="photo-slot__hint">Add photo · 1000 × 800</span>
+          <div data-reveal class="photo-slot overflow-hidden group min-h-[18rem] shadow-card rounded-3xl relative border-none">
+            <img src="src/assets/photos/hero-products.png" alt="Cold-room build" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            <div class="relative z-10 mt-auto text-left text-white">
+              <span class="px-3 py-1 rounded-full bg-blue-500/30 backdrop-blur text-blue-300 text-xs font-bold ring-1 ring-blue-400/40">Cold Chain</span>
+              <h3 class="mt-2 font-display text-xl font-semibold">Pharma Cold Storage</h3>
+              <p class="text-xs text-slate-300 mt-1">Precision temperature controlled walk-in</p>
+            </div>
           </div>
-          <!-- PHOTO SLOT -->
-          <div data-reveal class="photo-slot mask-blob-2 min-h-[16rem] shadow-soft">
-            <span class="photo-slot__icon"><svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
-            <span class="photo-slot__label">Blast-freezer install</span>
-            <span class="photo-slot__hint">Add photo · 1000 × 800</span>
+          <div data-reveal class="photo-slot overflow-hidden group min-h-[18rem] shadow-card rounded-3xl relative border-none">
+            <img src="src/assets/photos/card-ac.png" alt="Blast-freezer install" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            <div class="relative z-10 mt-auto text-left text-white">
+              <span class="px-3 py-1 rounded-full bg-amber-500/30 backdrop-blur text-amber-300 text-xs font-bold ring-1 ring-amber-400/40">Industrial</span>
+              <h3 class="mt-2 font-display text-xl font-semibold">Blast Freezer Unit</h3>
+              <p class="text-xs text-slate-300 mt-1">Sub-zero rapid freezing installation</p>
+            </div>
           </div>
         </div>
       </div>

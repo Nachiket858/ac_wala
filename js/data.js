@@ -36,6 +36,12 @@ const ASSETS = {
   wordmark: 'src/assets/brand/aerc-acwala-wordmark.png',
   penguin:  'src/assets/brand/aerc-penguin-logo.png',
   hero:     'src/assets/hero.png',
+  heroAbout: 'src/assets/photos/hero-about.png',
+  heroServices: 'src/assets/photos/hero-services.png',
+  heroProducts: 'src/assets/photos/hero-products.png',
+  heroBrands: 'src/assets/photos/hero-brands.png',
+  heroContact: 'src/assets/photos/hero-contact.png',
+  cardAC: 'src/assets/photos/card-ac.png',
 };
 
 /* ---- Primary navigation ------------------------------------------------ */
@@ -88,55 +94,73 @@ const SERVICES = [
     summary: 'Residential & commercial cooling — from split & cassette units to large VRF/VRV systems, ductable and packaged units.',
     points: ['Split, cassette, tower & window ACs', 'VRF / VRV system design & install', 'Ductable & packaged units', 'Fan coil units for chilled water'],
     brands: ['Daikin', 'Mitsubishi', 'Samsung', 'Carrier', 'Voltas', 'Blue Star', 'LG', 'Hitachi', 'Panasonic'],
+    img: 'src/assets/photos/card-ac.png',
+    bgGradient: 'linear-gradient(145deg, rgba(11, 43, 78, 0.88) 0%, rgba(21, 94, 151, 0.92) 100%)',
+    badge: 'Cooling Specialist'
   },
   {
     id: 'refrigeration', icon: 'snow', title: 'Refrigeration & Cold Chain',
     summary: 'End-to-end cold chain — cold rooms, walk-ins, blast freezers, chillers and commercial refrigeration for food & pharma.',
     points: ['Cold storage, cold rooms & walk-ins', 'Blast freezers & chillers', 'Deep freezers, visi-coolers, ice machines', 'Medical & food-grade refrigeration'],
     brands: ['Copeland', 'Bitzer', 'Bluecold', 'Danfoss', 'Western', 'Hoshizaki', 'Guntner'],
+    img: 'src/assets/photos/hero-products.png',
+    bgGradient: 'linear-gradient(145deg, rgba(15, 23, 42, 0.88) 0%, rgba(14, 116, 144, 0.92) 100%)',
+    badge: 'Sub-Zero Tech'
   },
   {
     id: 'heating', icon: 'fire', title: 'Heating Solutions',
     summary: 'Energy-efficient heat pumps for sanitary hot water and swimming pools — up to 70% energy savings.',
     points: ['Sensi Hydro commercial heat pumps', 'Sanitary heating 100–2,000 L/H', 'Pool heating 30–2,000 m³', 'Water heaters & geysers'],
     brands: ['Copeland', 'Usha'],
+    img: 'src/assets/photos/hero-about.png',
+    bgGradient: 'linear-gradient(145deg, rgba(30, 27, 75, 0.88) 0%, rgba(194, 65, 12, 0.88) 100%)',
+    badge: 'Energy Efficient'
   },
   {
     id: 'projects', icon: 'blueprint', title: 'System Design & Project Execution',
     summary: 'Turnkey HVAC-R engineering — system design, supply, installation, commissioning and after-sales by an experienced team.',
     points: ['Complete HVAC-R system design', 'Turnkey project execution', 'Commissioning & maintenance', 'Prompt after-sales service'],
     brands: [],
+    img: 'src/assets/photos/hero-services.png',
+    bgGradient: 'linear-gradient(145deg, rgba(11, 43, 78, 0.9) 0%, rgba(15, 118, 110, 0.9) 100%)',
+    badge: 'Turnkey HVAC-R'
   },
   {
     id: 'manufacturing', icon: 'factory', title: 'Contract Manufacturing',
     summary: 'In-house manufacturing of condensers and cooling coils in Blue / Gold Fin for refrigeration & air-conditioning.',
     points: ['Open-type condensers & cooling coils', 'L-type condensers for AC', 'Condensing-unit kits (HVAC-R)', 'Blue / Gold Fin options'],
     brands: [],
+    img: 'src/assets/photos/hero-brands.png',
+    bgGradient: 'linear-gradient(145deg, rgba(17, 24, 39, 0.9) 0%, rgba(30, 58, 138, 0.9) 100%)',
+    badge: 'OEM Manufacturing'
   },
   {
     id: 'spares', icon: 'tune', title: 'Spares, Controls & Electronics',
     summary: 'The full range of compressors, refrigerant gases, flow controls and smart controllers — largest ready stock.',
     points: ['Compressors — scroll, recip, semi-hermetic', 'Floron refrigerant gases (R-22, R-410a, R-32…)', 'Flow controls, valves & filter driers', 'Digital controllers, data loggers, thermostats'],
     brands: ['SRF Floron', 'Danfoss', 'Honeywell', 'Dixell', 'Multispan'],
+    img: 'src/assets/photos/hero-contact.png',
+    bgGradient: 'linear-gradient(145deg, rgba(11, 43, 78, 0.9) 0%, rgba(79, 70, 229, 0.9) 100%)',
+    badge: 'Ready Inventory'
   },
 ];
 
 /* ---- Why choose us ----------------------------------------------------- */
 const WHY = [
-  { icon: 'stock',   title: 'Largest Ready Stock', text: 'One of the largest ready-stock inventories of HVAC-R material for prompt delivery.' },
-  { icon: 'clock',   title: 'Prompt After-Sales', text: 'Fast, reliable service and after-sales support that keeps your systems running.' },
-  { icon: 'headset', title: 'Strong Technical Support', text: 'Deep application & technical expertise built over three decades in the field.' },
-  { icon: 'tune',    title: 'Customized Solutions', text: 'Tailored HVAC-R solutions engineered around your exact requirements.' },
+  { icon: 'stock',   title: 'Largest Ready Stock', text: 'One of the largest ready-stock inventories of HVAC-R material for prompt delivery.', img: 'src/assets/photos/hero-products.png' },
+  { icon: 'clock',   title: 'Prompt After-Sales', text: 'Fast, reliable service and after-sales support that keeps your systems running.', img: 'src/assets/photos/hero-services.png' },
+  { icon: 'headset', title: 'Strong Technical Support', text: 'Deep application & technical expertise built over three decades in the field.', img: 'src/assets/photos/hero-about.png' },
+  { icon: 'tune',    title: 'Customized Solutions', text: 'Tailored HVAC-R solutions engineered around your exact requirements.', img: 'src/assets/photos/hero-brands.png' },
 ];
 
 /* ---- Products / Cold Chain -------------------------------------------- */
 const PRODUCTS = [
-  { icon: 'snow',   title: 'Copeland Condensing Units', spec: '1 – 250 HP', text: 'Scroll, reciprocating, semi-hermetic & multi-compressor packs — air-cooled and water-cooled for the broadest cold-chain range.' },
-  { icon: 'stock',  title: 'Bluecold Evaporators', spec: 'AlMg / SS 304', text: 'Freon cold-room evaporators, SS-distributor units and slim-line dual-discharge coils for rust-free, efficient cooling.' },
-  { icon: 'factory',title: 'Blast Freezers & Chillers', spec: 'Floor · V-type · Ceiling', text: 'High-velocity blast freezers and chillers in floor, V-type and ceiling-mounted configurations for cold chain & food processing.' },
-  { icon: 'fire',   title: 'Sensi Hydro Heat Pumps', spec: '300 – 2,000 LPH', text: 'Commercial sanitary heating powered by Copeland ZW scroll compressors — up to 70% energy savings, made in India.' },
-  { icon: 'ac',     title: 'Deep Freezers & Visi-Coolers', spec: 'Hard/Glass Top', text: 'Eutectic freezers, visi-coolers, vertical freezers, scooping parlours and refrigerated prep tables.' },
-  { icon: 'gauge',  title: 'Controls & Electronics', spec: 'Smart Monitoring', text: 'Digital process controllers, data loggers, site supervisors and case controllers for precise temperature management.' },
+  { icon: 'snow',   title: 'Copeland Condensing Units', spec: '1 – 250 HP', text: 'Scroll, reciprocating, semi-hermetic & multi-compressor packs — air-cooled and water-cooled for the broadest cold-chain range.', img: 'src/assets/photos/hero-products.png' },
+  { icon: 'stock',  title: 'Bluecold Evaporators', spec: 'AlMg / SS 304', text: 'Freon cold-room evaporators, SS-distributor units and slim-line dual-discharge coils for rust-free, efficient cooling.', img: 'src/assets/photos/hero-services.png' },
+  { icon: 'factory',title: 'Blast Freezers & Chillers', spec: 'Floor · V-type · Ceiling', text: 'High-velocity blast freezers and chillers in floor, V-type and ceiling-mounted configurations for cold chain & food processing.', img: 'src/assets/photos/card-ac.png' },
+  { icon: 'fire',   title: 'Sensi Hydro Heat Pumps', spec: '300 – 2,000 LPH', text: 'Commercial sanitary heating powered by Copeland ZW scroll compressors — up to 70% energy savings, made in India.', img: 'src/assets/photos/hero-about.png' },
+  { icon: 'ac',     title: 'Deep Freezers & Visi-Coolers', spec: 'Hard/Glass Top', text: 'Eutectic freezers, visi-coolers, vertical freezers, scooping parlours and refrigerated prep tables.', img: 'src/assets/photos/hero-brands.png' },
+  { icon: 'gauge',  title: 'Controls & Electronics', spec: 'Smart Monitoring', text: 'Digital process controllers, data loggers, site supervisors and case controllers for precise temperature management.', img: 'src/assets/photos/hero-contact.png' },
 ];
 
 /* ---- Brands (grouped) -------------------------------------------------- */

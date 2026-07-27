@@ -158,11 +158,22 @@
         </div>
         <div data-reveal="right" class="relative order-1 lg:order-2">
           <div class="deco -top-5 -right-4 w-14 h-14 blob-b bg-accent/20 float-y hidden sm:block"></div>
-          <!-- PHOTO SLOT — to use a real photo, add <img src="src/assets/photos/on-site.jpg" alt="AERC team on site"> as the first child below -->
-          <div class="photo-slot mask-blob blob-morph min-h-[21rem] shadow-glow">
-            <span class="photo-slot__icon"><svg class="w-11 h-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
-            <span class="photo-slot__label">Add an on-site / project photo</span>
-            <span class="photo-slot__hint">Recommended 1200 × 1000</span>
+          <!-- On-site photo with glass overlay -->
+          <div class="relative mask-blob blob-morph min-h-[21rem] overflow-hidden shadow-glow group">
+            <img src="src/assets/photos/hero-about.png" alt="AERC team on site — HVAC-R installation" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-brand-950/20 to-transparent"></div>
+            <!-- Glass info badge at bottom -->
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="glass rounded-2xl px-5 py-4 ring-1 ring-white/30 backdrop-blur-xl flex items-center gap-4">
+                <div class="w-10 h-10 shrink-0 rounded-xl bg-brand-500/80 flex items-center justify-center text-white">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <div>
+                  <p class="text-white font-bold text-sm">Expert On-Site Team</p>
+                  <p class="text-white/70 text-xs">Commissioning, installation &amp; 24×7 after-sales</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

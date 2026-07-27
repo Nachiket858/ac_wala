@@ -19,28 +19,37 @@
 
   <main>
     <!-- PAGE HERO -->
-    <section class="relative overflow-hidden bg-hero-grad text-white grain">
+    <section class="relative overflow-hidden text-white grain">
+      <!-- Background Photo -->
+      <div class="absolute inset-0 overflow-hidden">
+        <img data-parallax src="src/assets/photos/hero-brands.png" alt="HVAC-R Brands Showroom" class="w-full h-full object-cover scale-105 select-none pointer-events-none opacity-40">
+        <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(11,43,78,0.88) 0%, rgba(21,94,151,0.65) 50%, rgba(11,43,78,0.92) 100%)"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-brand-900/50 via-transparent to-accent/15"></div>
+      </div>
       <div class="hero-aurora absolute inset-0"></div>
       <div class="absolute inset-0 opacity-[0.08]" style="background-image:radial-gradient(circle at 25% 15%,#fff 1px,transparent 1px);background-size:26px 26px"></div>
+      
       <!-- floating shapes -->
       <div class="deco text-white/60 top-28 left-[6%] w-20 h-20 hexagon ring-1 ring-white/30 float-y hidden lg:block"></div>
       <div class="deco bottom-44 right-[8%] w-16 h-16 blob-a blob-morph bg-white/10 ring-1 ring-white/15 hidden lg:block"></div>
 
-      <div class="container relative pt-32 sm:pt-40 pb-24 sm:pb-32">
+      <div class="container relative pt-36 sm:pt-44 pb-28 sm:pb-36">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="text-center lg:text-left">
-            <p data-reveal class="text-sm font-bold uppercase tracking-widest text-white/70">Brands &amp; partners</p>
-            <h1 data-reveal class="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">Authorized partner for 35+ brands</h1>
-            <p data-reveal class="mx-auto lg:mx-0 mt-4 max-w-xl text-white/85 leading-relaxed">Authorized wholesaler, channel partner, distributor, dealer &amp; sub-dealer for the world's leading HVAC-R manufacturers.</p>
+            <span data-reveal class="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-300 ring-1 ring-white/30 mb-4">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Global Brand Network
+            </span>
+            <h1 data-reveal class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">Authorized Partner for 35+ Brands</h1>
+            <p data-reveal class="mx-auto lg:mx-0 mt-4 max-w-xl text-slate-100 text-lg leading-relaxed">Authorized wholesaler, channel partner, distributor, dealer &amp; sub-dealer for the world's leading HVAC-R manufacturers.</p>
             <div data-reveal class="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
-              <a href="contact.html" class="btn-shine inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 font-bold px-6 py-3.5 shadow-glow">Enquire now</a>
-              <a href="tel:+919823444447" class="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur ring-1 ring-white/40 text-white font-semibold px-6 py-3.5 hover:bg-white/20 transition-colors">Call now</a>
+              <a href="contact.html" class="btn-shine inline-flex items-center gap-2 rounded-xl bg-white text-brand-700 font-bold px-7 py-4 shadow-glow hover:bg-slate-100 transition-all">Enquire Now</a>
+              <a href="tel:+919823444447" class="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-md ring-1 ring-white/40 text-white font-semibold px-7 py-4 hover:bg-white/20 transition-all">Call Now</a>
             </div>
           </div>
 
           <!-- VISUAL: brand-count ring -->
           <div data-reveal="right" class="relative">
-            <div class="glass rounded-4xl p-8 shadow-glow relative overflow-hidden text-center">
+            <div class="glass rounded-4xl p-8 shadow-glow relative overflow-hidden text-center ring-1 ring-white/30 backdrop-blur-xl">
               <div class="absolute -top-12 -left-12 w-32 h-32 blob-b bg-white/10"></div>
               <div class="relative mx-auto w-44 h-44">
                 <svg class="ring w-44 h-44" viewBox="0 0 120 120" aria-hidden="true">
@@ -48,17 +57,17 @@
                   <circle class="ring__arc ring__arc--light" cx="60" cy="60" r="52" stroke-width="10" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="--off:16"/>
                 </svg>
                 <div class="absolute inset-0 flex flex-col items-center justify-center">
-                  <span class="font-display text-5xl font-semibold leading-none">35+</span>
-                  <span class="text-xs uppercase tracking-widest text-white/70 mt-1">Brands</span>
+                  <span class="font-display text-5xl font-bold leading-none text-white">35+</span>
+                  <span class="text-xs uppercase tracking-widest text-cyan-200 mt-1 font-bold">Authorized Brands</span>
                 </div>
               </div>
-              <div class="relative mt-6 flex flex-wrap justify-center gap-2">
-                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Copeland</span>
-                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Daikin</span>
-                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Danfoss</span>
-                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Bitzer</span>
-                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Blue Star</span>
-                <span class="rounded-full bg-white/12 ring-1 ring-white/15 px-3 py-1 text-xs font-medium">Samsung</span>
+              <div class="relative mt-6 flex flex-wrap justify-center gap-2 border-t border-white/15 pt-5">
+                <span class="rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1 text-xs font-bold text-cyan-200">Copeland</span>
+                <span class="rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1 text-xs font-bold text-white">Daikin</span>
+                <span class="rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1 text-xs font-bold text-cyan-200">Danfoss</span>
+                <span class="rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1 text-xs font-bold text-white">Bitzer</span>
+                <span class="rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1 text-xs font-bold text-cyan-200">Blue Star</span>
+                <span class="rounded-full bg-white/15 ring-1 ring-white/30 px-3.5 py-1 text-xs font-bold text-white">Samsung</span>
               </div>
             </div>
           </div>
